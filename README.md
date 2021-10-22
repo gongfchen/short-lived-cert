@@ -19,25 +19,30 @@ $ go build
 
 ### CA
 
-To create encrypted certificates and generate a daily key, run the following:
+Starting running CA
 
 ```
-$ ./CA [masterkey] 
-...
-Listening to daily key request...
-issue [domain_name]
-key [domain_name] [num_of_day]
+$ ./CA
 ```
 
 ### Middle daemon
 
-To decrypt a certificate, run the following:
+Start running Midle Daemon
 
 ```
 ./Middle-daemon
-...
-Listening to certificate request...
-[domain_name] [num_of_day]
+```
+
+To request short-lived certificates for a domain (default to be 365 certificates). Need domain public keys available.
+
+```
+request [domain_name]
+```
+
+To request daily decryption key for a domain. Need to provide the day number.
+
+```
+key [domain_name] [day_number]
 ```
 
 ### Website daemon: 
